@@ -140,23 +140,11 @@ button:focus {
      box-shadow: none;
 }
 
-.carte-giocatore-basso {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+.carta-scambiata {
+    transition: transform 0.5s ease-in-out; /* Modifica la durata e il tipo di transizione a tuo piacimento */
+    transform: rotateY(180deg); /* Esempio di trasformazione, puoi personalizzare l'effetto desiderato */
 }
 
-.carte-giocatore-alto {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.carte-giocatore-laterale {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .carta {
     width: 80px;

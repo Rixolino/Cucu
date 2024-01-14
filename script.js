@@ -546,12 +546,25 @@ function scambiaCarta(giocatore1, giocatore2) {
     giocatore1.mano[0] = giocatore2.mano[0];
     giocatore2.mano[0] = cartaTemp;
 
+    const carteScambiate = document.querySelectorAll(`#carta-${index1}, #carta-${index2}`);
+
+    // Aggiungi la classe per l'animazione
+    carteScambiate.forEach(carta => carta.classList.add('carta-scambiata'));
+
+    // Rimuovi la classe dopo che l'animazione è completata
+    carteScambiate.forEach(carta => {
+        carta.addEventListener('transitionend', () => {
+            carta.classList.remove('carta-scambiata');
+        }, { once: true });
+    });
+
     aggiornaCarte(giocatore1, index1);
     aggiornaCarte(giocatore2, index2);
 
     console.log(`${giocatore2.nome} ha scambiato una carta con ${giocatore1.nome}.`);
     copriCarte();
 }
+
 
 function aggiornaCarte(giocatore, index) {
     const ctrGiocatore = document.querySelector(`.giocatore-${index + 1}`);
