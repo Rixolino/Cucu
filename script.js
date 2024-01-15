@@ -545,12 +545,13 @@ function scambiaCarta(giocatore1, giocatore2) {
     const cartaTemp = giocatore1.mano[0];
     giocatore1.mano[0] = giocatore2.mano[0];
     giocatore2.mano[0] = cartaTemp;
-
+     
     const carteScambiate = document.querySelectorAll(`#carta-${index1}, #carta-${index2}`);
 
     // Aggiungi la classe per l'animazione
     carteScambiate.forEach(carta => carta.classList.add('carta-scambiata'));
-
+    let cartesound = new Audio('./assets/cards.mp3');
+            cartesound.play();
     // Rimuovi la classe dopo che l'animazione è completata
     carteScambiate.forEach(carta => {
         carta.addEventListener('transitionend', () => {
